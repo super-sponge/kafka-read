@@ -9,7 +9,7 @@ if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
 fi
 
 
-KAFKA_JAAS_CONF=$base_dir/conf/kafka_client_jaas_key.conf
+KAFKA_JAAS_CONF=$base_dir/conf/kafka_client_jaas_dcadmin_key.conf
 if [ -f $KAFKA_JAAS_CONF ]; then
     export KAFKA_CLIENT_KERBEROS_PARAMS="-Djava.security.auth.login.config=$KAFKA_JAAS_CONF"
 fi
@@ -25,4 +25,4 @@ do
 jars=$jars:$jar
 done
 
-java  ${KAFKA_CLIENT_KERBEROS_PARAMS} $LOG4J_PARAMS -cp $jars  kafka.ConsumerMsg
+java  ${KAFKA_CLIENT_KERBEROS_PARAMS} $LOG4J_PARAMS -cp $jars  kafka.ConsumerMsg  -t redislog

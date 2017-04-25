@@ -25,4 +25,4 @@ do
 jars=$jars:$jar
 done
 
-java  ${KAFKA_CLIENT_KERBEROS_PARAMS} $LOG4J_PARAMS -cp $jars  kafka.ProducerMsg
+java  ${KAFKA_CLIENT_KERBEROS_PARAMS} $LOG4J_PARAMS -cp $jars  kafka.ProducerMsg -t redislog -n 10000
